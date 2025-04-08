@@ -1,0 +1,50 @@
+{
+    "navItems": [
+        {
+            "title": "나의소개",
+            "link": "about"
+        },
+        {
+            "title": "나의역사",
+            "link": "resume"
+        },
+        {
+            "title": "포트폴리오",
+            "link": "portfolio"
+        },
+        {
+            "title": "연락주세요",
+            "link": "contact"
+        }
+    ],
+    "socialLinks": {
+        "kakao": "#",
+        "instagram": "#",
+        "twitter": "#",
+        "facebook": "#"
+    },
+    "hero": {
+        "title": "AI보다 노력하는 개발자 ca1yp2의 블로그입니다. ",
+        "subtitle": "무료로 제공되는 Google의 서비스는 영어와 100가지 이상의 다른 언어로 단어, 구문, 웹페이지를 즉시 번역합니다.",
+        "cta1": "View My Work",
+        "cta2": "Let's Connect",
+        "image": {
+            "img": "img/hero.png",
+            "alt": "웹개발자 ca1yp2 블로그"
+        },
+        "stats": [
+            {
+                "number": "5+",
+                "label": "Years Experience"
+            },
+            {
+                "number": "100+",
+                "label": "Projects Completed"
+            },
+            {
+                "number": "50+",
+                "label": "Happy Clients"
+            }
+        ]
+    }
+}
