@@ -1,7 +1,7 @@
 {
     "navItems": [
         {
-            "title": "Introduce",
+            "title": "About",
             "link": "about"
         },
         {
@@ -13,7 +13,7 @@
             "link": "portfolio"
         },
         {
-            "title": "Contact Me",
+            "title": "Contact",
             "link": "contact"
         }
     ],
@@ -24,26 +24,26 @@
         "facebook": "#"
     },
     "hero": {
-        "title": "디자인, 영상 편집도 같이하는 개발자 ca1yp2의 블로그입니다. ",
-        "subtitle": "여러 가지 작업이 가능하며 제 포트폴리오에 작업한 내역들이 들어가 있습니다.",
-        "cta1": "View My Work",
-        "cta2": "Let's Connect",
+        "title": "끊임없이 성장하는 웹 개발자 ca1yp2입니다.",
+        "subtitle": "사용자의 입장에서 생각하며, 더 나은 웹 경험을 만들기 위해 끊임없이 배우고 도전합니다.",
+        "cta1": "포트폴리오 바로가기",
+        "cta2": "문의 남기기",
         "image": {
-            "img": "img/hero.png",
+            "img": "/img/hero.jpg",
             "alt": "웹개발자 ca1yp2 블로그"
         },
         "stats": [
             {
-                "number": "0",
-                "label": "Years Experience"
+                "number": "6개월",
+                "label": "풀스택 개발 집중 학습"
             },
             {
-                "number": "0",
-                "label": "Projects Completed"
+                "number": "1회",
+                "label": "팀 프로젝트 참여"
             },
             {
-                "number": "50",
-                "label": "Happy Clients"
+                "number": "6건",
+                "label": "개인 프로젝트 완료"
             }
         ]
     }
