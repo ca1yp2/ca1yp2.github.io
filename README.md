@@ -31,7 +31,7 @@ Discord 애플리케이션 UI 테마를 적용하여 **채팅형 인터페이스
 - `/data/home.json`에서 데이터 로드
 - Framer Motion 애니메이션 적용
 
-![Home Screenshot](./screenshots/home.png)
+![Home Screenshot](./public/screenshots/home.png)
 
 ### 2. About
 - 자기소개, 프로필 이미지, 개인 정보, 스킬 표시
@@ -40,14 +40,14 @@ Discord 애플리케이션 UI 테마를 적용하여 **채팅형 인터페이스
 - 스크롤 진입 시 Framer Motion 애니메이션 적용
 - `/data/about.json`에서 데이터 로드
 
-![About Screenshot](./screenshots/about.png)
+![About Screenshot](./public/screenshots/about.png)
 
 ### 3. Resume
 - 경력 및 학력 정보 타임라인 표시
 - 카드 등장 애니메이션 적용
 - `/data/resume.json`에서 데이터 로드
 
-![Resume Screenshot](./screenshots/resume.png)
+![Resume Screenshot](./public/screenshots/resume.png)
 
 ### 4. Portfolio
 - 프로젝트 갤러리 표시
@@ -56,7 +56,7 @@ Discord 애플리케이션 UI 테마를 적용하여 **채팅형 인터페이스
 - GitHub 링크 버튼 제공
 - `/data/portfolio.json`에서 데이터 로드
 
-![Portfolio Screenshot](./screenshots/portfolio.png)
+![Portfolio Screenshot](./public/screenshots/portfolio.png)
 
 ### 5. Contact
 - 채팅형 입력으로 이름, 이메일, 제목, 내용 수집
@@ -64,7 +64,7 @@ Discord 애플리케이션 UI 테마를 적용하여 **채팅형 인터페이스
 - 입력 후 자동 스크롤
 - `/contact` 페이지에서만 입력 활성화
 
-![Contact Screenshot](./screenshots/contact.png)
+![Contact Screenshot](./public/screenshots/contact.png)
 
 ---
 
