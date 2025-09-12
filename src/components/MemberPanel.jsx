@@ -10,7 +10,7 @@ const MemberPanel = ({ user }) => {
             initial={{ x: 300, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ type: "spring", stiffness: 120 }}
-            className="right-0 top-0 h-screen w-80 bg-[#2b2d31] shadow-lg flex flex-col text-white overflow-hidden"
+            className="hidden md:flex right-0 top-0 h-screen w-80 bg-[#2b2d31] shadow-lg flex flex-col text-white overflow-hidden"
         >
             {/* Cover Image */}
             <div className="relative h-28 w-full">

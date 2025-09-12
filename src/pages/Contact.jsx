@@ -40,17 +40,17 @@ export default function Contact() {
     };
 
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col flex-1 overflow-y-auto p-4 sm:p-6">
             <h1 className="text-4xl font-bold mb-6 text-white">Contact Me</h1>
 
-            <div className="flex-1 overflow-y-auto space-y-4 p-2">
+            <div className="flex-1 space-y-4">
                 {chatLogs.map((log, idx) => (
                     <div
                         key={idx}
-                        className={`p-3 rounded-lg max-w-md ${log.type === "question"
+                        className={`p-3 rounded-lg w-full max-w-full sm:max-w-md break-words ${log.type === "question"
                             ? "bg-[#40444b] text-white"
                             : log.type === "answer"
-                                ? "bg-indigo-500 text-white ml-8"
+                                ? "bg-indigo-500 text-white sm:ml-8 ml-4"
                                 : "bg-green-600 text-white text-center"
                             }`}
                     >
@@ -60,7 +60,7 @@ export default function Contact() {
                 ))}
                 {currentQuestion === null && chatLogs.length > 0 && (
                     <button
-                        className="mt-4 px-12 py-3 bg-green-500 rounded-lg hover:bg-green-600 text-white"
+                        className="mt-4 px-6 sm:px-12 py-3 bg-green-500 rounded-lg hover:bg-green-600 text-white w-full sm:w-auto"
                         onClick={handleSendEmail}
                     >
                         메일 전송하기

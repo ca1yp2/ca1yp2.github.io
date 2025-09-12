@@ -5,6 +5,8 @@ import ChannelSidebar from "./components/ChannelSidebar";
 import MemberPanel from "./components/MemberPanel";
 import Topbar from "./components/Topbar";
 import BottomBar from "./components/BottomBar";
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu } from "lucide-react";
 
 const user = {
     cover: "../img/cover.jpg",
@@ -36,9 +38,7 @@ export default function App() {
 
     const keyMap = ["name", "email", "subject", "message"];
 
-    const [chatLogs, setChatLogs] = useState([
-        { type: "question", text: questions[0] },
-    ]);
+    const [chatLogs, setChatLogs] = useState([{ type: "question", text: questions[0] }]);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
     const currentQuestion =
@@ -48,17 +48,13 @@ export default function App() {
 
     const handleSubmitAnswer = (answer) => {
         if (!currentQuestion) return;
-
         const key = keyMap[currentQuestionIndex];
 
-        // formData 업데이트
         setFormData((prev) => ({ ...prev, [key]: answer }));
 
-        // 채팅 로그 업데이트
         setChatLogs((prev) => {
             const updatedLogs = [...prev, { type: "answer", text: answer }];
 
-            // 다음 질문
             if (currentQuestionIndex + 1 < questions.length) {
                 setCurrentQuestionIndex((prev) => prev + 1);
                 updatedLogs.push({ type: "question", text: questions[currentQuestionIndex + 1] });
@@ -68,9 +64,7 @@ export default function App() {
             }
 
             return updatedLogs;
-
         });
-
     };
 
     const scrollContainerRef = useRef();
@@ -79,15 +73,59 @@ export default function App() {
         if (scrollContainerRef.current) {
             scrollContainerRef.current.scrollTo({ top: 0, behavior: "instant" });
         }
-    }, [location.pathname])
+    }, [location.pathname]);
+
+    // 모바일 메뉴 상태
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const isMobile = window.innerWidth < 768;
 
     return (
         <div className="flex h-screen bg-[#313338] text-[#dbdee1] font-sans">
             <ServerSidebar />
-            <ChannelSidebar />
+
+            {!isMobile && <ChannelSidebar />}
+
             <div className="flex flex-col flex-1 relative">
-                <Topbar />
-                <div ref={scrollContainerRef} className="flex-1 overflow-y-auto p-6 pb-24 scrollbar-thin">
+                {/* Topbar */}
+                <Topbar>
+                    {/* 모바일 메뉴 버튼 */}
+                    {isMobile && (
+                        <button
+                            className="mr-2 p-2 rounded-md bg-[#1e1f22] text-white hover:bg-[#5865f2] transition"
+                            onClick={() => setIsMobileMenuOpen(true)}
+                        >
+                            <Menu size={20} />
+                        </button>
+                    )}
+                </Topbar>
+
+                {/* 모바일 모달 사이드바 */}
+                <AnimatePresence>
+                    {isMobileMenuOpen && (
+                        <>
+                            {/* 배경 블러/반투명 */}
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 0.5 }}
+                                exit={{ opacity: 0 }}
+                                className="fixed inset-0 bg-black z-40 backdrop-blur"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            />
+
+                            <ChannelSidebar
+                                isMobile={true}
+                                closeSidebar={() => setIsMobileMenuOpen(false)}
+                            />
+                        </>
+                    )}
+                </AnimatePresence>
+
+                {/* 메인 콘텐츠 */}
+                <div
+                    ref={scrollContainerRef}
+                    className={`flex-1 overflow-y-auto p-6 max-w-full scrollbar-thin ${isContactPage ? "pb-[72px]" : "pb-6"
+                        }`}
+                >
                     <Outlet
                         context={{
                             formData,
@@ -102,14 +140,21 @@ export default function App() {
                         }}
                     />
                 </div>
-                <BottomBar
-                    formData={formData}
-                    setFormData={setFormData}
-                    onSubmit={handleSubmitAnswer}
-                    currentQuestion={currentQuestion}
-                    isContactPage={isContactPage}
-                />
+
+                <div className={`w-full ${isContactPage ? "fixed bottom-0 left-0" : "relative"
+                    }`}
+                >
+                    <BottomBar
+                        formData={formData}
+                        setFormData={setFormData}
+                        onSubmit={handleSubmitAnswer}
+                        currentQuestion={currentQuestion}
+                        isContactPage={isContactPage}
+                    />
+                </div>
+
             </div>
+
             <MemberPanel user={user} />
         </div>
     );

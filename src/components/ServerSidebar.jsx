@@ -11,7 +11,7 @@ export default function ServerSidebar() {
     ];
 
     return (
-        <aside className="w-16 bg-[#1e1f22] flex flex-col items-center py-4 space-y-4 shadow-lg">
+        <aside className="hidden md:flex w-16 bg-[#1e1f22] flex flex-col items-center py-4 space-y-4 shadow-lg">
             {icons.map((item, idx) => (
                 <motion.button
                     key={idx}
