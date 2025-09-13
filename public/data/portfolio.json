@@ -33,6 +33,14 @@
                 "caption": "회원가입_SNS"
             },
             {
+                "src": "../../img/staypick/staypick32.png",
+                "caption": "아이디 찾기"
+            },
+            {
+                "src": "../../img/staypick/staypick33.png",
+                "caption": "비밀번호 찾기"
+            },
+            {
                 "src": "../../img/staypick/staypick7.png",
                 "caption": "숙박시설_목록"
             },
