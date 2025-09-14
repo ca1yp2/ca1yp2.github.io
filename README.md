@@ -9,17 +9,56 @@
 **React Blog Portfolio**는 React와 Vite 기반의 개인 포트폴리오 웹사이트입니다.  
 Discord 애플리케이션 UI 테마를 적용하여 **채팅형 인터페이스와 사이드바, 카드 UI** 등 깔끔한 현대적 디자인을 제공합니다.
 팀/개인 프로젝트, 자기소개, 이력서, 연락처 등 다양한 정보를 확인할 수 있으며, **이메일 전송 기능**까지 포함되어 있습니다.
+또한 **모바일 반응형 UI를 적용**하여 스마트폰·태블릿 환경에서도 동일하게 편리하게 사용할 수 있도록 최적화했습니다.
 
 ---
 
 ## 🛠 기술 스택
 - **Frontend:** React 18, Vite, React Router v6
-- **Styling:** Tailwind CSS
+- **Styling:** Tailwind CSS (모바일 반응형 지원)
 - **Animations:** Framer Motion
 - **Icons & Components:** Lucide React, React Icons
-- **Slider:** Swiper
+- **Slider:** Swiper (모바일 스와이프 최적화)
 - **Email Service:** EmailJS
 - **배포:** GitHub Pages
+
+---
+
+## 🌟 주요 기능
+
+- SPA 구조와 React Router 기반 페이지 전환
+- Tailwind CSS + Framer Motion으로 현대적 UI/UX 제공
+- 프로젝트 필터링 및 Swiper 기반 이미지 갤러리
+- 채팅형 Contact 페이지 + 이메일 전송 기능
+- JSON 데이터 기반 콘텐츠 관리
+- Discord UI 테마 적용: 사이드바, 채팅창, 카드, 버튼 등 전체 UI 통일
+
+---
+
+## 📱 모바일 최적화
+
+- 모든 페이지에서 **반응형 레이아웃** 지원 (Tailwind CSS breakpoint 활용)
+- Swiper 슬라이더의 이미지 비율/높이 조정 → 작은 화면에서도 가독성 유지
+- BottomBar가 항상 화면 하단에 고정되도록 구현 (모바일 키보드 활성화 시 스크롤 조정)
+- Contact 페이지에서 입력창 클릭 시 키보드에 가려지지 않도록 스크롤 보정
+- 가로 스크롤 방지 (`overflow-x-hidden`) 적용으로 안정적인 뷰 제공
+
+---
+
+## 📁 프로젝트 구조
+
+```
+my_react_blog/
+├─ public/
+│ └─ data/ # JSON 데이터 파일
+├─ src/
+│ ├─ components/ # 공통 UI 컴포넌트
+│ ├─ pages/ # 페이지 컴포넌트
+│ ├─ App.jsx # 최상위 컴포넌트
+│ └─ index.jsx # React Router 설정
+├─ package.json
+└─ vite.config.js
+```
 
 ---
 
@@ -77,23 +116,6 @@ Discord 애플리케이션 UI 테마를 적용하여 **채팅형 인터페이스
 
 ---
 
-## 📁 프로젝트 구조
-
-```
-my_react_blog/
-├─ public/
-│ └─ data/ # JSON 데이터 파일
-├─ src/
-│ ├─ components/ # 공통 UI 컴포넌트
-│ ├─ pages/ # 페이지 컴포넌트
-│ ├─ App.jsx # 최상위 컴포넌트
-│ └─ index.jsx # React Router 설정
-├─ package.json
-└─ vite.config.js
-```
-
----
-
 ## ▶️ 설치 및 실행 방법
 
 ```bash
@@ -130,17 +152,6 @@ git push origin gh-pages
 ```
 3. GitHub Pages 설정에서 gh-pages 브랜치를 소스로 지정
 4. https://ca1yp2.github.io/ 접속
-
---
-
-## 🌟 주요 기능
-
-- SPA 구조와 React Router 기반 페이지 전환
-- Tailwind CSS + Framer Motion으로 현대적 UI/UX 제공
-- 프로젝트 필터링 및 Swiper 기반 이미지 갤러리
-- 채팅형 Contact 페이지 + 이메일 전송 기능
-- JSON 데이터 기반 콘텐츠 관리
-- Discord UI 테마 적용: 사이드바, 채팅창, 카드, 버튼 등 전체 UI 통일
 
 ---
 
