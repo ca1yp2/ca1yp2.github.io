@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 
@@ -10,6 +10,15 @@ export default function Contact() {
     } = useOutletContext();
 
     const scrollRef = useRef();
+    const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setViewportHeight(prev => prev || window.innerHeight);
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     const EMAIL_SERVICE_ID = "service_xtd73vg";
     const EMAIL_TEMPLATE_ID = "template_f8defwa";
@@ -40,7 +49,10 @@ export default function Contact() {
     };
 
     return (
-        <div className="flex flex-col flex-1 overflow-y-auto p-4 sm:p-6">
+        <div
+            className="flex flex-col flex-1 overflow-y-auto p-4 sm:p-6"
+            style={{ height: viewportHeight }}
+        >
             <h1 className="text-4xl font-bold mb-6 text-white">Contact Me</h1>
 
             <div className="flex-1 space-y-4">
